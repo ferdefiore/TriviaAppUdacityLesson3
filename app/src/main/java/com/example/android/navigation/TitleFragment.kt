@@ -22,9 +22,12 @@ class TitleFragment : Fragment() {
                 inflater, R.layout.fragment_title,container, false
         )
         (activity as AppCompatActivity).supportActionBar?.title = "Bienvenido a Trivia App"
-        binding.playButton.setOnClickListener(
+/*        binding.playButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
-        )
+        )*/
+        binding.playButton.setOnClickListener{
+            view?.findNavController()?.navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
         setHasOptionsMenu(true)
         return binding.root
     }
